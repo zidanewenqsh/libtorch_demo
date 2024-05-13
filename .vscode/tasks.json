@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake Configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["-B", "${workspaceFolder}/build"],
+            "group": {
+                "kind": "build",
+            }
+        },
+        {
+            "label": "CMake Build",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["--build", "${workspaceFolder}/build"],
+            "group": {
+                "kind": "build",
+            }, 
+            "dependsOn": "CMake Configure"
+        },
+        {
+            "label": "CMake Clean",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["--build", "${workspaceFolder}/build", "--target", "clean"],
+            "group": "build"
+        },
+        {
+            "label": "Run Executable",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/TorchDemo",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }, 
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": [],
+            "dependsOn": "CMake Build"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "clangd.path": "clangd",
+    "clangd.fallbackFlags": [
+        "-I${workspaceFolder}/include"
+    ],
+    "clangd.arguments": [
+        "--background-index",
+        "--compile-commands-dir=${workspaceFolder}/build",
+        "--all-scopes-completion",
+        "--completion-style=detailed",
+        "--clang-tidy",
+        "--log=verbose",
+        "--pretty"
+    ],
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.buildEnvironment": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+    },
+    "files.associations": {
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "system_error": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "cmath": "cpp"
+    }
+}
